@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev --open --port 8989",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview"
+  },
+  "devDependencies": {
+    "@unocss/nuxt": "^0.37.3",
+    "nuxt": "3.0.0-rc.3"
+  }
+}
