@@ -7,7 +7,7 @@ definePageMeta({
 });
 
 useHead({
-  title: route.meta.title,
+  title: `${route.meta.title} - Cosmos`,
   link: [
     {
       rel: "icon",

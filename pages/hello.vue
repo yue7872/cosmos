@@ -6,7 +6,7 @@ definePageMeta({
   title: "hello页",
 });
 useHead({
-  title: route.meta.title,
+  title: `${route.meta.title} - Cosmos`,
 });
 </script>
 <template></template>
