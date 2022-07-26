@@ -9,6 +9,7 @@ useHead({
   title: `${route.meta.title} - Cosmos`,
 });
 
+// @ts-ignore-disable-next-line
 const articleList = import.meta.glob("../articles/*.md", {
   as: "raw",
 });
@@ -21,9 +22,15 @@ pathList.map((items) => {
   const postContent: any = articleList[items];
   const { articleInfo } = useMd(postContent);
   const postName = items.replace("../articles/", "").replace(".md", "");
-  posts.push({ title: postName, ...articleInfo });
+  posts.push({ title: postName, articleInfo });
 });
 </script>
 <template>
-  <div>{{ posts }}</div>
+  <div>
+    <div v-for="(post, index) in posts" :key="index">
+      <NuxtLink :to="`articles/${post.title}.vue`">{{
+        post.articleInfo.title
+      }}</NuxtLink>
+    </div>
+  </div>
 </template>

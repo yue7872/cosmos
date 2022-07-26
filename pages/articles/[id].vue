@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import "vite/types/importMeta.d.ts";
 const route = useRoute();
 const articleId = route.params.id as string;
 
 const mdPath: string = `../../articles/${articleId.replace(".vue", ".md")}`;
+// @ts-ignore-disable-next-line
 const articleList = import.meta.glob("../../articles/*.md", {
   as: "raw",
 });

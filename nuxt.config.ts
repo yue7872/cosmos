@@ -13,7 +13,4 @@ export default {
     shortcuts: [],
     rules: [],
   },
-  alias: {
-    vite: "~/node_modules/vite",
-  },
 };
