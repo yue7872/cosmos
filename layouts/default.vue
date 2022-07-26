@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div max-w-1200px ma>
     <NavBar />
     <slot></slot>
   </div>

@@ -5,16 +5,12 @@ definePageMeta({
   layout: "default",
   title: "首页",
 });
-
+// const router = useRouter();
+// console.log(router.getRoutes());
 useHead({
   title: `${route.meta.title} - Cosmos`,
-  link: [
-    {
-      rel: "icon",
-      type: "image/x-icon",
-      href: "/favicon.png",
-    },
-  ],
 });
 </script>
-<template></template>
+<template>
+  <NuxtLink to="/articles/1.vue">文章详情</NuxtLink>
+</template>

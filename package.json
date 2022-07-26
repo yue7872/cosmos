@@ -8,6 +8,8 @@
   },
   "devDependencies": {
     "@unocss/nuxt": "^0.37.3",
+    "highlight.js": "^11.6.0",
+    "marked": "^4.0.18",
     "nuxt": "3.0.0-rc.3"
   }
 }

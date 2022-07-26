@@ -1,5 +1,6 @@
 // nuxt.config.js
-
+const projectRoot = process.cwd();
+const { resolve } = require("path");
 export default {
   modules: ["@unocss/nuxt"],
   unocss: {
@@ -11,5 +12,8 @@ export default {
     // core options
     shortcuts: [],
     rules: [],
+  },
+  alias: {
+    vite: "~/node_modules/vite",
   },
 };
