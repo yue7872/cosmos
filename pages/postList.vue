@@ -28,9 +28,7 @@ pathList.map((items) => {
 <template>
   <div>
     <div v-for="(post, index) in posts" :key="index">
-      <NuxtLink :to="`articles/${post.title}.vue`">{{
-        post.articleInfo.title
-      }}</NuxtLink>
+      <PostCard :post="post" />
     </div>
   </div>
 </template>
