@@ -6,14 +6,17 @@ const props = defineProps({
   },
 });
 
-const { post } = props;
+const post: PostDetail = props.post;
+const { title, articleInfo } = post;
 </script>
 <template>
   <div border-solid mb-10px>
-    <NuxtLink :to="`articles/${post.title}.vue`">
-      <div>{{ post.articleInfo.title }}</div>
+    <NuxtLink :to="`articles/${title}.vue`">
+      <div hover-color-red>{{ articleInfo.title }}</div>
       <div>日期</div>
       <div>分类</div>
+      <div color-coolGray>{{ articleInfo }}</div>
+      <div v-if="articleInfo.outline">摘要：{{ articleInfo.outline }}</div>
     </NuxtLink>
   </div>
 </template>

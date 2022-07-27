@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup>
 const router = useRouter();
 const goHome = () => {
   router.push("/");
@@ -11,7 +11,7 @@ const goHome = () => {
       <div ml-10px font-serif font-medium>Cosmos</div>
     </div>
     <div flex items-center font-serif select-none>
-      <div class="nav-item" mr-10px cursor-pointer>search</div>
+      <div mr-10px cursor-pointer>search</div>
       <NuxtLink to="/postList">blog</NuxtLink>
       <NuxtLink to="/hello" ml-10px>Hello</NuxtLink>
       <NuxtLink to="/aa" ml-10px>aa</NuxtLink>

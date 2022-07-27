@@ -1,4 +1,5 @@
 /**
+ * 用来分离markdown的头部和内容
  * @param  {string} article md文件内容
  * @return {string} article 处理后的md文件内容（去除了头部信息）
  * @return {string} articleInfo 文章开头信息
