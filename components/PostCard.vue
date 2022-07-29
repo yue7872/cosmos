@@ -9,14 +9,22 @@
     flex
     justify-center
     flex-col
+    relative
     class="posts-item-box"
   >
     <NuxtLink :to="`articles/${title}.vue`">
-      <div hover-color-red font-medium text-28px>{{ articleInfo.title }}</div>
-      <div>日期</div>
-      <div>分类</div>
+      <div hover-color-red font-medium text-28px inline>
+        {{ articleInfo.title }}
+      </div>
+      <div flex>
+        <div mr-10px color-coolGray>分类:</div>
+        <div mr-20px>{{ articleInfo.categories }}</div>
+      </div>
       <div color-coolGray>{{ articleInfo }}</div>
       <div v-if="articleInfo.outline">摘要：{{ articleInfo.outline }}</div>
+      <div absolute bottom-0px>
+        {{ articleInfo.date.replace(/(\w{2}:){2}\w{2}/, "") }}
+      </div>
     </NuxtLink>
   </div>
 </template>
