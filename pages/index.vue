@@ -10,7 +10,16 @@ definePageMeta({
 useHead({
   title: `${route.meta.title} - Cosmos`,
 });
+const dailySentence = await useDailySentence();
+const { typedText, typing } = useTyper(dailySentence, 100);
+let myCustomText = "hahah";
+if (!typing) {
+  myCustomText = useTyper("花花婚你就能", 100).typedText;
+}
 </script>
 <template>
-  <NuxtLink to="/articles/1.vue">文章详情</NuxtLink>
+  <div>
+    <div>{{ typing ? typedText : myCustomText }}</div>
+    <div>{{ myCustomText }}</div>
+  </div>
 </template>
