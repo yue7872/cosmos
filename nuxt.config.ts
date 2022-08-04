@@ -11,6 +11,9 @@ export default {
 
     // core options
     shortcuts: [],
-    rules: [],
+    rules: [
+      ["animate-blink", { animation: "blink 1s linear infinite" }],
+      ["font-system", { "font-family": "system-ui" }],
+    ],
   },
 };

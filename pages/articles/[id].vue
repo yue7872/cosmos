@@ -3,10 +3,7 @@ const route = useRoute();
 const articleId = route.params.id as string;
 
 const mdPath: string = `../../articles/${articleId.replace(".vue", ".md")}`;
-// @ts-ignore-disable-next-line
-const articleList = import.meta.glob("../../articles/*.md", {
-  as: "raw",
-});
+const articleList = useAllPost();
 
 const mdContent: any = articleList[mdPath];
 const { article, articleInfo } = useMd(mdContent);
