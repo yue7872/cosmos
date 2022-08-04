@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { Ref } from "vue";
-
 const route = useRoute();
 
 definePageMeta({
@@ -25,15 +23,16 @@ watch(typing, (typing) => {
       200,
       true
     );
+    // @ts-ignore-disable-next-line
     subtitle.content = myCustomText;
   }
 });
 </script>
 <template>
   <div>
-    <div flex flex-row>
+    <div flex flex-row font-serif text-20px>
       <div>{{ typing ? typedText : subtitle.content }}</div>
-      <div :class="typing || 'animate-blink'" font-900 font-system>|</div>
+      <div animate-blink font-900 font-system select-none>|</div>
     </div>
   </div>
 </template>
