@@ -6,9 +6,7 @@ const goHome = () => {
 const showSearch = ref(false);
 const searchFocus = ref(false);
 const handleSearch = () => {
-  if (!showSearch.value) {
-    searchFocus.value = true;
-  }
+  searchFocus.value = !searchFocus.value;
   showSearch.value = !showSearch.value;
 };
 </script>

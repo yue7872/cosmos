@@ -9,16 +9,7 @@ useHead({
   title: `${route.meta.title} - Cosmos`,
 });
 
-const articleList = useAllPost();
-
-const posts: PostDetail[] = [];
-const pathList = Object.keys(articleList);
-pathList.map((items) => {
-  const postContent: any = articleList[items];
-  const { article, articleInfo } = useMd(postContent);
-  const postName = items.replace("../articles/", "").replace(".md", "");
-  posts.push({ title: postName, articleInfo, content: article });
-});
+const { posts } = useAllPost();
 </script>
 <template>
   <div>

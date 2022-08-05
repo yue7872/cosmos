@@ -4,5 +4,14 @@ export const useAllPost = () => {
   const articleList = import.meta.glob("../articles/*.md", {
     as: "raw",
   });
-  return articleList;
+
+  const posts: PostDetail[] = [];
+  const pathList = Object.keys(articleList);
+  pathList.map((items) => {
+    const postContent: any = articleList[items];
+    const { article, articleInfo } = useMd(postContent);
+    const postName = items.replace("../articles/", "").replace(".md", "");
+    posts.push({ title: postName, articleInfo, content: article });
+  });
+  return { articleList, posts };
 };
