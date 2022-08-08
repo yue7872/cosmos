@@ -12,7 +12,7 @@
     relative
     class="posts-item-box"
   >
-    <NuxtLink :to="`articles/${title}.vue`">
+    <NuxtLink :to="`/articles/${title}.vue`">
       <div hover-color-red font-medium text-28px inline>
         {{ articleInfo.title }}
       </div>

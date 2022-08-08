@@ -1,6 +1,4 @@
 // nuxt.config.js
-const projectRoot = process.cwd();
-const { resolve } = require("path");
 export default {
   modules: ["@unocss/nuxt"],
   unocss: {
@@ -14,6 +12,7 @@ export default {
     rules: [
       ["animate-blink", { animation: "blink 1s linear infinite" }],
       ["font-system", { "font-family": "system-ui" }],
+      ["bg-mask", { background: "rgba(0,0,0,0.6);" }],
     ],
   },
 };
