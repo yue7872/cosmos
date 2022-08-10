@@ -27,11 +27,12 @@ watch(props, (val) => {
     }, 50);
   }
 });
-
-const { posts } = useAllPost();
 const handleFocus = (e: any) => {
   e.target.select();
 };
+
+// 搜索逻辑
+const { posts } = useAllPost();
 const searchResult = reactive([] as SearchResultObj[]);
 const handleInput = (e: any) => {
   const { value } = e.target;

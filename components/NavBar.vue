@@ -9,11 +9,10 @@ const handleSearch = () => {
   searchFocus.value = !searchFocus.value;
   showSearch.value = !showSearch.value;
 };
-const closeSearchBox = (e) => {
-  console.log(e);
-  searchFocus.value = false;
-  showSearch.value = false;
-};
+
+watch(showSearch, (val) => {
+  useBodyScroll(val);
+});
 </script>
 <template>
   <div>
@@ -40,7 +39,6 @@ const closeSearchBox = (e) => {
       bg-mask
       v-if="showSearch"
       @click="handleSearch"
-      @closeSearchBox="closeSearchBox"
     >
       <SearchBox
         :showSearchBox="showSearch"
