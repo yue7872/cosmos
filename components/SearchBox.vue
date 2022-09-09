@@ -21,12 +21,9 @@ const props = defineProps({
 // 自动聚焦
 const searchInput = ref(null);
 watch(props, (val) => {
-  if (val.searchFocus) {
-    setTimeout(() => {
-      searchInput.value?.focus();
-    }, 50);
-  }
+  val.searchFocus && searchInput.value?.focus();
 });
+
 const handleFocus = (e: any) => {
   e.target.select();
 };
@@ -78,36 +75,40 @@ const handleInput = (e: any) => {
       type="search"
       ref="searchInput"
     />
-    <div
-      v-for="(item, index) in searchResult"
-      :key="index"
-      w-400px
-      border-b-red
-      border-b
-    >
-      <NuxtLink :to="item.link" @click="jumpClick">
-        <div>{{ item.title }}</div>
-        <div
-          v-for="(arrItem, arrIndex) in useSplitSearch(
-            item.content,
-            item.searchValue
-          )"
-          :key="arrIndex"
-          inline
-        >
-          <div inline>{{ arrItem }}</div>
+    <div of-scroll max-h-500px>
+      <div
+        v-for="(item, index) in searchResult"
+        :key="index"
+        w-400px
+        border-b-red
+        border-b
+      >
+        <NuxtLink :to="item.link" @click="jumpClick" block>
+          <div>{{ item.title }}</div>
           <div
+            v-for="(arrItem, arrIndex) in useSplitSearch(
+              item.content,
+              item.searchValue
+            )"
+            :key="arrIndex"
             inline
-            text-red
-            v-if="
-              arrIndex !==
-              useSplitSearch(item.content, item.searchValue).length - 1
-            "
+            break-all
           >
-            {{ item.searchValue }}
+            <div inline break-all>{{ arrItem }}</div>
+            <div
+              inline
+              text-red
+              break-all
+              v-if="
+                arrIndex !==
+                useSplitSearch(item.content, item.searchValue).length - 1
+              "
+            >
+              {{ item.searchValue }}
+            </div>
           </div>
-        </div>
-      </NuxtLink>
+        </NuxtLink>
+      </div>
     </div>
   </div>
 </template>

@@ -3,11 +3,16 @@ const router = useRouter();
 const goHome = () => {
   router.push("/");
 };
+
 const showSearch = ref(false);
 const searchFocus = ref(false);
-const handleSearch = () => {
-  searchFocus.value = !searchFocus.value;
+
+// 搜索状态切换
+const handleSearch = async () => {
   showSearch.value = !showSearch.value;
+  // dom更新后再聚焦
+  await nextTick();
+  searchFocus.value = !searchFocus.value;
 };
 
 const hideSearch = (val) => {
@@ -41,6 +46,7 @@ watch(showSearch, (val) => {
       top-0
       h-100vh
       bg-mask
+      z-9999
       v-if="showSearch"
       @click="handleSearch"
     >
