@@ -31,6 +31,10 @@ const handleFocus = (e: any) => {
   e.target.select();
 };
 
+const emit = defineEmits(["customHanlde"]);
+const jumpClick = () => {
+  emit("customHanlde", true);
+};
 // 搜索逻辑
 const { posts } = useAllPost();
 const searchResult = reactive([] as SearchResultObj[]);
@@ -81,7 +85,7 @@ const handleInput = (e: any) => {
       border-b-red
       border-b
     >
-      <NuxtLink :to="item.link">
+      <NuxtLink :to="item.link" @click="jumpClick">
         <div>{{ item.title }}</div>
         <div
           v-for="(arrItem, arrIndex) in useSplitSearch(

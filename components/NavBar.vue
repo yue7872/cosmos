@@ -10,6 +10,10 @@ const handleSearch = () => {
   showSearch.value = !showSearch.value;
 };
 
+const hideSearch = (val) => {
+  val && handleSearch();
+};
+
 watch(showSearch, (val) => {
   useBodyScroll(val);
 });
@@ -45,6 +49,7 @@ watch(showSearch, (val) => {
         :searchFocus="searchFocus"
         absolute
         top-100px
+        @customHanlde="hideSearch"
       />
     </div>
   </div>
