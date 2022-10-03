@@ -22,13 +22,56 @@ const hideSearch = (val) => {
 watch(showSearch, (val) => {
   useBodyScroll(val);
 });
+
+const showTitleInNav = ref(false);
+const isArticles = ref(false);
+watch(
+  () => router.currentRoute.value.path,
+  (val) => {
+    isArticles.value = val.includes("/articles/");
+  },
+  { immediate: true }
+);
+onMounted(() => {
+  document.addEventListener("scroll", () => {
+    const { scrollTop } = document.documentElement;
+    if (scrollTop > 40) {
+      if (!showTitleInNav.value && isArticles.value) {
+        showTitleInNav.value = true;
+      }
+    } else {
+      if (showTitleInNav.value && isArticles.value) {
+        showTitleInNav.value = false;
+      }
+    }
+  });
+});
 </script>
 <template>
-  <div>
-    <div flex justify-between h-60px relative>
+  <div pb-100px>
+    <div
+      flex
+      justify-between
+      h-60px
+      fixed
+      w-full
+      top-0
+      left-0
+      pl-32px
+      pr-32px
+      nav
+    >
       <div flex items-center cursor-pointer @click="goHome">
         <img src="~/assets/img/logo.png" alt="cosmos" w-32px h-32px />
         <div ml-10px font-serif font-medium>Cosmos</div>
+        <div
+          cursor-auto
+          ml-10px
+          class="nav-title"
+          :class="showTitleInNav ? 'nav-title-show' : 'nav-title-hide'"
+        >
+          title
+        </div>
       </div>
       <div flex items-center font-serif select-none>
         <div mr-10px cursor-pointer @click="handleSearch">search</div>
