@@ -29,6 +29,8 @@ watch(
   () => router.currentRoute.value.path,
   (val) => {
     isArticles.value = val.includes('/articles/');
+    if (!isArticles.value)
+      showTitleInNav.value = false;
   },
   { immediate: true },
 );
