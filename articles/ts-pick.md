@@ -1,5 +1,5 @@
 ---
-title: ts学习
+title: 实现Pick
 date: 10/07/2022 00:16:45
 tags: [typescript, pick]
 categories: ts
@@ -20,6 +20,8 @@ type A1 = Pick<A, 'name'|'age'>
 //     age: number;
 // }
 ```
+
+[answer](https://github.com/yue7872/type-challenges/blob/main/questions/00004-easy-pick/template.ts)
 
 # extends
 1. extends用于继承
