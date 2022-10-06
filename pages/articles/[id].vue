@@ -11,6 +11,11 @@ const { article, articleInfo } = useMd(mdContent);
 useHead({
   title: `${articleInfo.title} - ${articleInfo.categories}`,
 });
+
+// 打开博客默认滚动的bug
+onMounted(() => {
+  document.documentElement.scrollTop = 0;
+});
 </script>
 <template>
   <MarkDownPage :content="article" :info="articleInfo" />
