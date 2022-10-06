@@ -29,22 +29,22 @@ npm install --save-dev babel-core babel-loader babel-preset-env babel-preset-rea
 在`webpack`中配置Babel的方法如下:
 
 ```js
-    module: {
-        rules: [
-            {
-                test: /(\.jsx|\.js)$/,
-                use: {
-                    loader: "babel-loader",
-                    options: {
-                        presets: [
-                            "env", "react"
-                        ]
-                    }
-                },
-                exclude: /node_modules/
-            }
-        ]
+module: {
+  rules: [
+    {
+      test: /(\.jsx|\.js)$/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: [
+            'env', 'react'
+          ]
+        }
+      },
+      exclude: /node_modules/
     }
+  ];
+}
 ```
 
 现在你的webpack的配置已经允许你使用ES6以及JSX的语法了。继续用上面的例子进行测试，不过这次我们会使用React，记得先安装 React 和 React-DOM.
@@ -89,27 +89,27 @@ Webpack有一个不可不说的优点，它把所有的文件都都当做模块�
 webpack提供两个工具处理样式表，`css-loader` 和 `style-loader`，二者处理的任务不同，`css-loader`使你能够使用类似`@import` 和 `url(...)`的方法实现 `require()`的功能,`style-loader`将所有的计算后的样式加入页面中，二者组合在一起使你能够把样式表嵌入webpack打包后的JS文件中。
 
 ```js
-module: { 
-    rules: [
+module: {
+  rules: [
+    {
+      test: /(\.jsx|\.js)$/,
+      use: {
+        loader: 'babel-loader'
+      },
+      exclude: /node_modules/
+    },
+    {
+      test: /\.css$/,
+      use: [
         {
-            test: /(\.jsx|\.js)$/,
-            use: {
-                loader: "babel-loader"
-            },
-            exclude: /node_modules/
-        },
-        {
-                test: /\.css$/,
-                use: [
-                    {
-                        loader: "style-loader"
-                    }, {
-                        loader: "css-loader"
-                    }
-                ]
-            }
-    ]   
-  }
+          loader: 'style-loader'
+        }, {
+          loader: 'css-loader'
+        }
+      ]
+    }
+  ];
+}
 ```
 
 

@@ -1,9 +1,9 @@
 <script setup>
-const route = useRoute();
-
 definePageMeta({
-  layout: "default",
-  title: "aa",
+  layout: 'default',
+  title: 'aa',
 });
 </script>
-<template></template>
+<template>
+  <div>a</div>
+</template>

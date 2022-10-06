@@ -1,0 +1,12 @@
+{
+  "extends": "@antfu",
+  "rules": {
+    "semi": ["error", "always"],
+    "@typescript-eslint/semi": ["error", "always"],
+    "quotes": ["error", "single"],
+    "brace-style": [2, "stroustrup", { "allowSingleLine": false }],
+    "array-callback-return": "off",
+    "vue/v-on-event-hyphenation": "off"
+  },
+  "ignorePatterns":["*.md"]
+}

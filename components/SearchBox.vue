@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import { useSplitSearch } from "~/composables/useSplitSearch";
+import { useSplitSearch } from '~/composables/useSplitSearch';
 interface SearchResultObj {
-  title: string;
-  content: string;
-  link: string;
-  searchValue: string;
+  title: string
+  content: string
+  link: string
+  searchValue: string
 }
 
 const props = defineProps({
@@ -28,9 +28,9 @@ const handleFocus = (e: any) => {
   e.target.select();
 };
 
-const emit = defineEmits(["customHanlde"]);
+const emit = defineEmits(['customHanlde']);
 const jumpClick = () => {
-  emit("customHanlde", true);
+  emit('customHanlde', true);
 };
 // 搜索逻辑
 const { posts } = useAllPost();
@@ -40,13 +40,13 @@ const handleInput = (e: any) => {
   searchResult.splice(0);
   if (value) {
     posts.map((item) => {
-      const postContent: any = item.content.replace(/\n/g, "").toLowerCase();
+      const postContent: any = item.content.replace(/\n/g, '').toLowerCase();
       const matchNumber = postContent.indexOf(value);
       if (matchNumber !== -1) {
         searchResult.push({
           content: postContent.slice(
             Math.max(0, matchNumber - 20),
-            matchNumber + 50
+            matchNumber + 50,
           ),
           title: item.articleInfo.title || item.title,
           link: `/articles/${item.title}.vue`,
@@ -60,6 +60,7 @@ const handleInput = (e: any) => {
 <template>
   <div v-if="showSearchBox" p-50px bg-white @click.stop="">
     <input
+      ref="searchInput"
       w-400px
       h-40px
       text-16px
@@ -69,12 +70,11 @@ const handleInput = (e: any) => {
       border-black
       pl-20px
       pr-20px
-      @focus.stop="handleFocus"
-      @input="handleInput"
       autofocus
       type="search"
-      ref="searchInput"
-    />
+      @focus.stop="handleFocus"
+      @input="handleInput"
+    >
     <div of-scroll max-h-500px>
       <div
         v-for="(item, index) in searchResult"
@@ -83,26 +83,28 @@ const handleInput = (e: any) => {
         border-b-red
         border-b
       >
-        <NuxtLink :to="item.link" @click="jumpClick" block>
+        <NuxtLink :to="item.link" block @click="jumpClick">
           <div>{{ item.title }}</div>
           <div
             v-for="(arrItem, arrIndex) in useSplitSearch(
               item.content,
-              item.searchValue
+              item.searchValue,
             )"
             :key="arrIndex"
             inline
             break-all
           >
-            <div inline break-all>{{ arrItem }}</div>
+            <div inline break-all>
+              {{ arrItem }}
+            </div>
             <div
+              v-if="
+                arrIndex !==
+                  useSplitSearch(item.content, item.searchValue).length - 1
+              "
               inline
               text-red
               break-all
-              v-if="
-                arrIndex !==
-                useSplitSearch(item.content, item.searchValue).length - 1
-              "
             >
               {{ item.searchValue }}
             </div>

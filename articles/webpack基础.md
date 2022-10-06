@@ -80,8 +80,8 @@ Webpack的工作方式是：把你的项目当做一个整体，通过一个给�
 ```js
 // Greeter.js
 module.exports = function() {
-  var greet = document.createElement('div');
-  greet.textContent = "Hi there and greetings!";
+  const greet = document.createElement('div');
+  greet.textContent = 'Hi there and greetings!';
   return greet;
 };
 ```
@@ -89,21 +89,21 @@ module.exports = function() {
 `main.js`文件中我们写入下述代码，用以把`Greeter模块`返回的节点插入页面。
 
 ```js
-//main.js 
+// main.js
 const greeter = require('./Greeter.js');
-document.querySelector("#root").appendChild(greeter());
+document.querySelector('#root').appendChild(greeter());
 ```
 
 在根目录下（my-wp）新建一个名为`webpack.config.js`的文件，用来配置webpack。
 
 ```js
 module.exports = {
-  entry:  __dirname + "/app/main.js",//已多次提及的唯一入口文件
+  entry: `${__dirname}/app/main.js`, // 已多次提及的唯一入口文件
   output: {
-    path: __dirname + "/public",//打包后的文件存放的地方
-    filename: "bundle.js"//打包后输出文件的文件名
+    path: `${__dirname}/public`, // 打包后的文件存放的地方
+    filename: 'bundle.js'// 打包后输出文件的文件名
   }
-}
+};
 ```
 
 > **注**：“__dirname”是node.js中的一个全局变量，它指向当前执行脚本所在的目录。

@@ -32,12 +32,12 @@ swiper_desc: webpack的功能
 ```js
 module.exports = {
   devtool: 'eval-source-map',
-  entry:  __dirname + "/app/main.js",
+  entry: `${__dirname}/app/main.js`,
   output: {
-    path: __dirname + "/public",
-    filename: "bundle.js"
+    path: `${__dirname}/public`,
+    filename: 'bundle.js'
   }
-}
+};
 ```
 
 > `cheap-module-eval-source-map`方法构建速度更快，但是不利于调试，推荐在大型项目考虑时间成本时使用。
@@ -65,18 +65,18 @@ devserver作为webpack配置选项中的一项，以下是它的一些配置选�
 module.exports = {
   devtool: 'eval-source-map',
 
-  entry:  __dirname + "/app/main.js",
+  entry: `${__dirname}/app/main.js`,
   output: {
-    path: __dirname + "/public",
-    filename: "bundle.js"
+    path: `${__dirname}/public`,
+    filename: 'bundle.js'
   },
 
   devServer: {
-    contentBase: "./public",//本地服务器所加载的页面所在的目录
-    historyApiFallback: true,//不跳转
-    inline: true//实时刷新
-  } 
-}
+    contentBase: './public', // 本地服务器所加载的页面所在的目录
+    historyApiFallback: true, // 不跳转
+    inline: true// 实时刷新
+  }
+};
 ```
 
 ***配置快捷启动***

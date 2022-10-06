@@ -25,7 +25,7 @@ stats有一些预设选项：
 使用方式：
 
 ```js
-stats: "errors-only"
+stats: 'errors-only';
 ```
 
 ## 3、stats自定义
@@ -162,7 +162,7 @@ stats: {
 导入webpack函数：
 
 ```js
-const webpack = require("webpack");
+const webpack = require('webpack');
 
 webpack({
   // 配置对象
@@ -171,7 +171,7 @@ webpack({
     // 在这里处理错误
   }
   // 处理完成
-  //也可以运行stats方法
+  // 也可以运行stats方法
 });
 ```
 
@@ -190,7 +190,7 @@ webpack({
 以 JSON 对象形式返回编译信息。`options` 可以是一个字符串（预设值）或是颗粒化控制的对象：
 
 ```js
-stats.toJson("minimal"); // 更多选项如: "verbose" 等.
+stats.toJson('minimal'); // 更多选项如: "verbose" 等.
 ```
 
 ### `stats.toString(options)`
@@ -209,7 +209,7 @@ stats.toString({
 下面是 `stats.toString()` 用法的示例：
 
 ```js
-const webpack = require("webpack");
+const webpack = require('webpack');
 
 webpack({
   // 配置对象
@@ -220,8 +220,8 @@ webpack({
   }
 
   console.log(stats.toString({
-    chunks: false,  // 使构建过程更静默无输出
-    colors: true    // 在控制台展示颜色
+    chunks: false, // 使构建过程更静默无输出
+    colors: true // 在控制台展示颜色
   }));
 });
 ```

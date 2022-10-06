@@ -11,10 +11,10 @@ abbrlink: js
 ## **Question 1: What will be printed on the browser console?**
 
 ```js
-var a = 10;
+const a = 10;
 function foo() {
-    console.log(a); // ??
-    var a = 20;
+  console.log(a); // ??
+  var a = 20;
 }
 foo();
 ```
@@ -27,9 +27,9 @@ JavaScript的函数定义有个特点，它会先扫描整个函数体的语句�
 'use strict';
 
 function foo() {
-    var x = 'Hello, ' + y;
-    console.log(x);
-    var y = 'Bob';
+  const x = `Hello, ${y}`;
+  console.log(x);
+  var y = 'Bob';
 }
 
 foo();
@@ -41,10 +41,10 @@ foo();
 
 ```js
 function foo() {
-    var y; // 提升变量y的申明，此时y为undefined
-    var x = 'Hello, ' + y;
-    console.log(x);
-    y = 'Bob';
+  let y; // 提升变量y的申明，此时y为undefined
+  const x = `Hello, ${y}`;
+  console.log(x);
+  y = 'Bob';
 }
 ```
 
@@ -57,25 +57,24 @@ function foo() {
 * 不推荐的方式：先调用函数，再声明函数
 */
 
-catName("Chloe");
+catName('Chloe');
 
 function catName(name) {
-    console.log("我的猫名叫 " + name);
+  console.log(`我的猫名叫 ${name}`);
 }
 
 /*
 代码执行的结果是: "我的猫名叫 Chloe"
 */
-
 ```
 
 只有声明会被提升，初始化则不会。***初始化就是赋值***。函数和变量相比，会被优先提升。这意味着函数会被提升到更靠前的位置。
 
 ```js
 // Example 1 - only y is hoisted
-var x = 1;                 // 声明 + 初始化 x
-console.log(x + " " + y);  // '1 undefined'
-var y = 2;                 // 声明 + 初始化 y
+const x = 1; // 声明 + 初始化 x
+console.log(`${x} ${y}`); // '1 undefined'
+var y = 2; // 声明 + 初始化 y
 ```
 
 采用严格模式后不能使用未声明的变量。
@@ -110,13 +109,13 @@ var y = 2;                 // 声明 + 初始化 y
 'use strict';
 
 function foo() {
-    var x = 1;
-    x = x + 1;
+  let x = 1;
+  x = x + 1;
 }
 
 function bar() {
-    var x = 'A';
-    x = x + 'B';
+  let x = 'A';
+  x = `${x}B`;
 }
 ```
 
@@ -126,11 +125,11 @@ function bar() {
 'use strict';
 
 function foo() {
-    var x = 1;
-    function bar() {
-        var y = x + 1; // bar可以访问foo的变量x!
-    }
-    var z = y + 1; // ReferenceError! foo不可以访问bar的变量y!
+  const x = 1;
+  function bar() {
+    const y = x + 1; // bar可以访问foo的变量x!
+  }
+  const z = y + 1; // ReferenceError! foo不可以访问bar的变量y!
 }
 ```
 
@@ -167,11 +166,11 @@ MYAPP.foo = function () {
 ## **Answer 1: undefined**
 
 ```js
-var a = 10;
+const a = 10;
 function foo() {
   // 变量提升 等价于 var a;
-    console.log(a); // undefined
-    var a = 20;  //初始化值不提升
+  console.log(a); // undefined
+  var a = 20; // 初始化值不提升
   // JavaScript的函数在查找变量时，从自身函数定义开始，从“内”向“外”查找。如果内部函数定义了与外部函数重名的变量，则内部函数的变量将“屏蔽”外部函数的变量。
 }
 foo();
@@ -182,10 +181,10 @@ foo();
 ## Question 2: Will output be the same if we use let or const instead of var?
 
 ```js
-var a = 10;
+const a = 10;
 function foo() {
-    console.log(a); // ??
-    let a = 20;
+  console.log(a); // ??
+  let a = 20;
 }
 foo();
 ```

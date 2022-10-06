@@ -2,11 +2,13 @@
 const route = useRoute();
 
 definePageMeta({
-  layout: "default",
-  title: "hello页",
+  layout: 'default',
+  title: 'hello页',
 });
 useHead({
   title: `${route.meta.title} - Cosmos`,
 });
 </script>
-<template></template>
+<template>
+  <div>hello</div>
+</template>

@@ -125,12 +125,12 @@ cacheGroups 中的每一个缓存块，其实都是一个chunk，你要在html�
 
 ```js
 return {
-    template    : './views/' + name + '.html',
-    filename    : name + '.html',
-    title       : name,
-    inject      : true,
-    hash        : true,
-    chunks      : [name,'common','commons']
+  template: `./views/${name}.html`,
+  filename: `${name}.html`,
+  title: name,
+  inject: true,
+  hash: true,
+  chunks: [name, 'common', 'commons']
 };
 ```
 

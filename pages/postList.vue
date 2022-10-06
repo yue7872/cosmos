@@ -1,8 +1,8 @@
 <script setup lang="ts">
 const route = useRoute();
 definePageMeta({
-  layout: "default",
-  title: "文章列表",
+  layout: 'default',
+  title: '文章列表',
 });
 
 useHead({

@@ -9,12 +9,12 @@ abbrlink: vite
 ## 默认配置
 
 ```js
-import { defineConfig } from 'vite'
-import { resolve } from 'path'
-import react from '@vitejs/plugin-react'
-import { viteCommonjs } from '@originjs/vite-plugin-commonjs'
+import { resolve } from 'path';
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import { viteCommonjs } from '@originjs/vite-plugin-commonjs';
 
-const projectRoot = process.cwd()
+const projectRoot = process.cwd();
 
 export default defineConfig({
   root: './',
@@ -36,7 +36,7 @@ export default defineConfig({
       DemandCom: resolve(projectRoot, './src/components'),
     },
   },
-})
+});
 ```
 
 - root: 根节点，如过要引入base，则root不能设定在src/projects里，因为base在projects外。

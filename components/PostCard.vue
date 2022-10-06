@@ -1,3 +1,15 @@
+<script setup lang="ts">
+const props = defineProps({
+  post: {
+    type: Object,
+    default: () => {},
+  },
+});
+
+// eslint-disable-next-line vue/no-setup-props-destructure
+const post: PostDetail = props.post;
+const { title, articleInfo } = post;
+</script>
 <template>
   <div
     mb-20px
@@ -17,28 +29,25 @@
         {{ articleInfo.title }}
       </div>
       <div flex>
-        <div mr-10px color-coolGray>分类:</div>
-        <div mr-20px>{{ articleInfo.categories }}</div>
+        <div mr-10px color-coolGray>
+          分类:
+        </div>
+        <div mr-20px>
+          {{ articleInfo.categories }}
+        </div>
       </div>
-      <div color-coolGray>{{ articleInfo }}</div>
-      <div v-if="articleInfo.outline">摘要：{{ articleInfo.outline }}</div>
+      <div color-coolGray>
+        {{ articleInfo }}
+      </div>
+      <div v-if="articleInfo.outline">
+        摘要：{{ articleInfo.outline }}
+      </div>
       <div absolute bottom-0px>
-        {{ articleInfo.date.replace(/(\w{2}:){2}\w{2}/, "") }}
+        {{ articleInfo.date.replace(/(\w{2}:){2}\w{2}/, '') }}
       </div>
     </NuxtLink>
   </div>
 </template>
-<script setup lang="ts">
-const props = defineProps({
-  post: {
-    type: Object,
-    default: {},
-  },
-});
-
-const post: PostDetail = props.post;
-const { title, articleInfo } = post;
-</script>
 <style lang="less">
 .posts-item-box {
   box-shadow: 0 3px 8px 6px rgba(7, 17, 27, 0.06);

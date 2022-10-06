@@ -41,7 +41,7 @@ npx babel-upgrade --write
 
 ```json
 {
-   presets: ['@babel/react','@babel/env'],
+   "presets": ["@babel/react", "@babel/env"],
 }
 ```
 
@@ -373,14 +373,12 @@ handleMessage @ client.js:102
 通过打断点，一步步调试，发现normalize-url 下面这里的代码：
 
 ```js
-var urlObj = url.parse(str);
-if (opts.normalizeHttps && urlObj.protocol === 'https:') {
-	urlObj.protocol = 'http:';
-}
+const urlObj = url.parse(str);
+if (opts.normalizeHttps && urlObj.protocol === 'https:')
+  urlObj.protocol = 'http:';
 
-if (!urlObj.hostname && !urlObj.pathname) {
-	throw new Error('Invalid URL');
-}
+if (!urlObj.hostname && !urlObj.pathname)
+  throw new Error('Invalid URL');
 ```
 
 str是 'https', 就是说传入了一个空字符串，热更新的问题，那就是css-hot-loader传给normalize-url的值。
@@ -389,13 +387,14 @@ str是 'https', 就是说传入了一个空字符串，热更新的问题，那�
 
 ```js
 function reloadStyle(src) {
-  var elements = document.querySelectorAll('link');
-  var loaded = false;
+  const elements = document.querySelectorAll('link');
+  let loaded = false;
 
-  forEach.call(elements, function(el) {
-    if (el.visited === true) return;
+  forEach.call(elements, (el) => {
+    if (el.visited === true)
+      return;
 
-    var url = getReloadUrl(el.href, src);
+    const url = getReloadUrl(el.href, src);
     if (url) {
       updateCss(el, url);
       loaded = true;

@@ -6,10 +6,10 @@
  */
 export const useMd = (article: string) => {
   const originContent: string = article.match(/---(.*\n)*---/g)[0];
-  const transContent: string = originContent.replace("---\n", '{"').replace("\n---", '"}').replace(/: /g, '": "').replace(/\n/g, '","');
+  const transContent: string = originContent.replace('---\n', '{"').replace('\n---', '"}').replace(/: /g, '": "').replace(/\n/g, '","');
   const articleInfo = JSON.parse(transContent);
 
-  article = article.replace(originContent, "");
+  article = article.replace(originContent, '');
   return {
     article,
     articleInfo,

@@ -17,22 +17,22 @@ abbrlink: theme
 配置如下：
 
 ```yaml
-  # MiniValine
-  minivaline:  
-    appId: t8ltzv6dfc6LY2PyUHg63qji-gzGzoHsz
-    appKey: kLUU303uYNpQC2FUrzrWiBAi
-    mode: xCss    #xCss
-    avatarD: retro
-    math: true
-    enableFlag: true
-    master: ['85947f1b17a8c872e90bc01764a99268']
-    tagMeta: ['博主',"小伙伴","访客"]
-    placeholder: "留个评论再走吧！"
-    md: true
-    region: true
-    enableUA: true
-    RecordIP: true
-    pageSize: 6
+# MiniValine
+minivaline:
+  appId: t8ltzv6dfc6LY2PyUHg63qji-gzGzoHsz
+  appKey: kLUU303uYNpQC2FUrzrWiBAi
+  mode: xCss # xCss
+  avatarD: retro
+  math: true
+  enableFlag: true
+  master: [85947f1b17a8c872e90bc01764a99268]
+  tagMeta: [博主, 小伙伴, 访客]
+  placeholder: 留个评论再走吧！
+  md: true
+  region: true
+  enableUA: true
+  RecordIP: true
+  pageSize: 6
 ```
 
 

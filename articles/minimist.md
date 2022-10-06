@@ -24,19 +24,19 @@ process存在于全局对象上，不需要使用require()加载即可使用，p
 在node服务运行时，经常会判断当前服务运行环境，（生产环境 / 非生产环境）：
 
 ```js
-if(process.env.NODE_ENV === 'production'){
+if (process.env.NODE_ENV === 'production')
   console.log('生产环境');
-}else{
-  console.log('非生产环境')
-}
+
+else
+  console.log('非生产环境');
 ```
 
 #### 异步：process.nextTick(fn)
 
 ```js
 console.log('海贼王');
-process.nextTick(function(){
-    console.log('火影忍者');
+process.nextTick(() => {
+  console.log('火影忍者');
 });
 console.log('死神');
 
@@ -58,8 +58,8 @@ process.argv 返回一个数组，数组元素分别如下：
 
 ```js
 // print process.argv
-process.argv.forEach(function(val, index, array) {
-  console.log('参数' + index + ': ' + val);
+process.argv.forEach((val, index, array) => {
+  console.log(`参数${index}: ${val}`);
 });
 ```
 
@@ -80,13 +80,13 @@ process.argv.forEach(function(val, index, array) {
 工作路径的用途不用过多解释了，直接上代码
 
 ```js
-console.log('Starting directory: ' + process.cwd());
+console.log(`Starting directory: ${process.cwd()}`);
 try {
   process.chdir('/tmp');
-  console.log('New directory: ' + process.cwd());
+  console.log(`New directory: ${process.cwd()}`);
 }
 catch (err) {
-  console.log('chdir: ' + err);
+  console.log(`chdir: ${err}`);
 }
 ```
 

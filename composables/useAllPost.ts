@@ -1,8 +1,8 @@
 export const useAllPost = () => {
   // TODO：文章列表上传数据库而非本地查询
-  // @ts-ignore-disable-next-line
-  const articleList = import.meta.glob("../articles/*.md", {
-    as: "raw",
+  // @ts-expect-error-disable-next-line
+  const articleList = import.meta.glob('../articles/*.md', {
+    as: 'raw',
   });
 
   const posts: PostDetail[] = [];
@@ -10,7 +10,7 @@ export const useAllPost = () => {
   pathList.map((items) => {
     const postContent: any = articleList[items];
     const { article, articleInfo } = useMd(postContent);
-    const postName = items.replace("../articles/", "").replace(".md", "");
+    const postName = items.replace('../articles/', '').replace('.md', '');
     posts.push({ title: postName, articleInfo, content: article });
   });
   return { articleList, posts };
