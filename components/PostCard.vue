@@ -35,6 +35,12 @@ const { title, articleInfo } = post;
         <div mr-20px>
           {{ articleInfo.categories }}
         </div>
+        <div mr-10px color-coolGray>
+          标签:
+        </div>
+        <div v-for="(item, idx) in articleInfo.tags" :key="idx" mr-20px>
+          {{ item }}
+        </div>
       </div>
       <div color-coolGray>
         {{ articleInfo }}
