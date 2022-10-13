@@ -48,7 +48,7 @@ const { title, articleInfo } = post;
       <div v-if="articleInfo.outline">
         摘要：{{ articleInfo.outline }}
       </div>
-      <div absolute bottom-0px>
+      <div absolute bottom-20px right-50px>
         {{ articleInfo.date.replace(/(\w{2}:){2}\w{2}/, '') }}
       </div>
     </NuxtLink>
