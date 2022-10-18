@@ -1,5 +1,5 @@
 ---
-title: 实现Pick
+title: 实现ReadOnly2
 date: 10/07/2022 00:16:45
 tags: [typescript, readOnly2]
 categories: ts
