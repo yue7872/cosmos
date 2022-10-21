@@ -7,49 +7,35 @@ const props = defineProps({
 });
 
 // eslint-disable-next-line vue/no-setup-props-destructure
-const post: PostDetail = props.post;
-const { title, articleInfo } = post;
+const post: PostDetail = ref(props.post);
+const title = ref(post.value.title);
+const articleInfo = ref(post.value.articleInfo);
+
+watch(props, (val) => {
+  post.value = props.post;
+  title.value = post.value.title;
+  articleInfo.value = post.value.articleInfo;
+});
 </script>
 <template>
   <div
-    mb-20px
-    p-30px
-    border-rd-20px
-    min-h-200px
     box-border
     cursor-pointer
     flex
     justify-center
     flex-col
     relative
-    class="posts-item-box"
+    mb-50px
   >
     <NuxtLink :to="`/articles/${title}.vue`">
-      <div hover-color-red font-medium text-28px inline>
-        {{ articleInfo.title }}
+      <div inline text-14px rd>
+        『{{ articleInfo.categories }}』
       </div>
-      <div flex>
-        <div mr-10px color-coolGray>
-          分类:
-        </div>
-        <div mr-20px>
-          {{ articleInfo.categories }}
-        </div>
-        <div mr-10px color-coolGray>
-          标签:
-        </div>
-        <div v-for="(item, idx) in articleInfo.tags" :key="idx" mr-20px>
-          {{ item }}
-        </div>
+      <div font-medium text-28px class="hover-color-#009966">
+        {{ articleInfo.articleTitle }}
       </div>
-      <div color-coolGray>
-        {{ articleInfo }}
-      </div>
-      <div v-if="articleInfo.outline">
-        摘要：{{ articleInfo.outline }}
-      </div>
-      <div absolute bottom-20px right-50px>
-        {{ articleInfo.date.replace(/(\w{2}:){2}\w{2}/, '') }}
+      <div inline text-16px text-coolGray>
+        {{ articleInfo.outline }}
       </div>
     </NuxtLink>
   </div>

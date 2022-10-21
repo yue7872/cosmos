@@ -1,6 +1,6 @@
 ---
 title: typora：快捷键
-date: '2021年6月7日 13:16:35'
+date: '6/7/2021 13:16:35'
 tags: [markdown, typora]
 categories: markdown
 abbrlink: markdown

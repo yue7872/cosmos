@@ -8,7 +8,10 @@ export default {
     attributify: true, // enabled `@unocss/preset-attributify`,
 
     // core options
-    shortcuts: [],
+    shortcuts: [
+      { 'sort-item': 'border-none font-400 opacity-20 hover:opacity-50 cursor-pointer' },
+      { 'sort-active': 'opacity-100 text-cosGreen !hover:opacity-100' },
+    ],
     rules: [
       ['animate-blink', { animation: 'blink 1s linear infinite' }],
       ['font-system', { 'font-family': 'system-ui' }],
@@ -23,6 +26,7 @@ export default {
           'z-index': '100;',
         },
       ],
+      ['text-cosGreen', { color: '#009966' }],
     ],
   },
 };

@@ -5,6 +5,7 @@ interface SearchResultObj {
   content: string
   link: string
   searchValue: string
+  inTitle?: boolean
 }
 
 const props = defineProps({
@@ -24,7 +25,7 @@ watch(props, (val) => {
   val.searchFocus && searchInput.value?.focus();
 });
 
-const handleFocus = (e: any) => {
+const handleFocus = (e: EventTarget) => {
   e.target.select();
 };
 
@@ -35,12 +36,23 @@ const jumpClick = () => {
 // 搜索逻辑
 const { posts } = useAllPost();
 const searchResult = reactive([] as SearchResultObj[]);
-const handleInput = (e: any) => {
+const handleInput = (e: EventTarget) => {
   const { value } = e.target;
   searchResult.splice(0);
   if (value) {
     posts.map((item) => {
-      const postContent: any = item.content.replace(/\n/g, '').toLowerCase();
+      // search in articleTitle
+      if (item.articleInfo.articleTitle.toLowerCase().includes(value)) {
+        searchResult.push({
+          content: item.articleInfo.outline,
+          title: item.articleInfo.articleTitle.toLowerCase(),
+          link: `/articles/${item.title}.vue`,
+          searchValue: value,
+          inTitle: true,
+        });
+      }
+      // search in postContent
+      const postContent: string = item.content.replace(/\n/g, '').toLowerCase();
       const matchNumber = postContent.indexOf(value);
       if (matchNumber !== -1) {
         searchResult.push({
@@ -48,7 +60,7 @@ const handleInput = (e: any) => {
             Math.max(0, matchNumber - 20),
             matchNumber + 50,
           ),
-          title: item.articleInfo.title || item.title,
+          title: item.articleInfo.articleTitle || item.title,
           link: `/articles/${item.title}.vue`,
           searchValue: value,
         });
@@ -84,7 +96,22 @@ const handleInput = (e: any) => {
         border-b
       >
         <NuxtLink :to="item.link" block @click="jumpClick">
-          <div>{{ item.title }}</div>
+          <div v-if="item.inTitle">
+            <span>
+              {{ useSplitSearch(item.title,item.searchValue)[0] }}
+            </span>
+            <span
+              text-cosGreen break-all
+            >
+              {{ item.searchValue }}
+            </span>
+            <span>
+              {{ useSplitSearch(item.title,item.searchValue)[1] }}
+            </span>
+          </div>
+          <div v-else>
+            {{ item.title }}
+          </div>
           <div
             v-for="(arrItem, arrIndex) in useSplitSearch(
               item.content,
@@ -103,7 +130,7 @@ const handleInput = (e: any) => {
                   useSplitSearch(item.content, item.searchValue).length - 1
               "
               inline
-              text-red
+              text-cosGreen
               break-all
             >
               {{ item.searchValue }}

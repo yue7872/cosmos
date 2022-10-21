@@ -4,6 +4,7 @@ date: 10/14/2022 19:21:06
 tags: [typescript, type, interface]
 categories: ts
 abbrlink: ts
+outline: 一些ts基础知识，包括类型声明，ts类型等
 ---
 
 # type和interface

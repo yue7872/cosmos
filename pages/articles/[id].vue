@@ -9,7 +9,7 @@ const mdContent: any = articleList[mdPath];
 const { article, articleInfo } = useMd(mdContent);
 
 useHead({
-  title: `${articleInfo.title} - ${articleInfo.categories}`,
+  title: `${articleInfo.articleTitle} - ${articleInfo.categories}`,
 });
 
 // 打开博客默认滚动的bug
