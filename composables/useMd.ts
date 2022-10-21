@@ -22,13 +22,13 @@ export const useMd = (article: string) => {
     outline: '',
   };
   const temp = JSON.parse(transContent);
-  const { title, date, tags, categories, timestamp, outline } = temp;
+  const { title, date, tags, categories, outline } = temp;
   articleInfo.articleTitle = title;
   articleInfo.categories = categories;
   // 格式化articleInfo
   articleInfo.tags = tags.replace(/\'/g, '').replace(/\[/g, '').replace(/\]/g, '').replace(/ /g, '').split(',');
   articleInfo.timestamp = new Date(date.replace(/\'/g, '')).getTime();
-  articleInfo.date = FormatDate(timestamp);
+  articleInfo.date = FormatDate(articleInfo.timestamp);
   articleInfo.outline = outline || article.replace(/#/g, '').replace(/\n/g, '').substring(0, 50);
   articleInfo.readingTime = article.length > 700 ? Math.ceil(article.length / 700) : 0;
 
