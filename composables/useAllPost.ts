@@ -1,5 +1,6 @@
 export const useAllPost = () => {
   // TODO：文章列表上传数据库而非本地查询
+  // FIXME: 缺少md-loader 导致的nuxt打包错误
   // @ts-expect-error-disable-next-line
   const articleList = import.meta.glob('../articles/*.md', {
     as: 'raw',
