@@ -36,6 +36,7 @@ type spaceXLength = Length<spaceX> // expected 5
 
 `T[number]` 表示数组中的每一项
 
+`T[0]` 表示数组第一项
 
 # 数组长度
 
