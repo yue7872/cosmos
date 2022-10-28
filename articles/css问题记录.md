@@ -26,3 +26,14 @@ background: linear-gradient(to bottom, #08a89c 0%, #08a89c 50%, #edf2f2 50%, #ed
 
 可以设置min-height: 50%;
 
+#### 3.渐变边框的实现
+
+```css
+.box {
+  border: 4px solid transparent;
+  border-radius: 16px;
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  background-image: linear-gradient(to right, #222, #222), linear-gradient(90deg, #8F41E9, #578AEF);
+}
+```
