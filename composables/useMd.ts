@@ -7,7 +7,7 @@ import FormatDate from '../utils/formatDate';
  * @return {string} articleInfo 文章开头信息
  */
 export const useMd = (article: string) => {
-  const originContent: string = article.match(/---(.*\n)*---/g)[0];
+  const originContent: string = article.match(/---(.*\n)*?---/g)[0];
   article = article.replace(originContent, '');
 
   // 将头部信息转化为对象
