@@ -31,7 +31,9 @@ watch(typing, (typing) => {
 <template>
   <div>
     <div flex flex-row font-serif text-20px>
-      <div>{{ typing ? typedText : subtitle.content }}</div>
+      <div animate-haha>
+        {{ typing ? typedText : subtitle.content }}
+      </div>
       <div animate-blink font-900 font-system select-none>
         |
       </div>

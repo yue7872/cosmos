@@ -9,7 +9,10 @@ export default {
 
     // core options
     shortcuts: [
-      { 'sort-item': 'border-none font-400 opacity-20 hover:opacity-50 cursor-pointer' },
+      {
+        'sort-item':
+          'border-none font-400 opacity-20 hover:opacity-50 cursor-pointer',
+      },
       { 'sort-active': 'opacity-100 text-cosGreen !hover:opacity-100' },
     ],
     rules: [
@@ -28,5 +31,13 @@ export default {
       ],
       ['text-cosGreen', { color: '#009966' }],
     ],
+    theme: {
+      animation: {
+        keyframes: {
+          haha: '{0%, 100% {opacity:1} 50% {opacity:.5}}',
+        },
+        durations: { haha: '3s' },
+      },
+    },
   },
 };
