@@ -358,8 +358,3 @@ docker container cp [containID]:[/path/to/file] .
 ```dockerfile
 RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo 'Asia/Shanghai' >/etc/timezone
 ```
-
-## 10、内网docker推送
-
-http://wiki.kubernetes.oa.com/quickstart/csighub.html
-

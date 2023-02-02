@@ -32,12 +32,12 @@ export default {
       ['text-cosGreen', { color: '#009966' }],
     ],
     theme: {
-      animation: {
-        keyframes: {
-          haha: '{0%, 100% {opacity:1} 50% {opacity:.5}}',
-        },
-        durations: { haha: '3s' },
-      },
+      // animation: {
+      //   keyframes: {
+      //     haha: '{0%, 100% {opacity:1} 50% {opacity:.5}}',
+      //   },
+      //   durations: { haha: '3s' },
+      // },
     },
   },
 };

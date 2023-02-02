@@ -20,3 +20,6 @@ onMounted(() => {
 <template>
   <MarkDownPage :content="article" :info="articleInfo" />
 </template>
+<style>
+@import url(~/assets/solarized/solarized.css);
+</style>

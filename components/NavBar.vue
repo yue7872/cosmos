@@ -77,7 +77,7 @@ onMounted(() => {
         </div>
       </div>
       <div flex items-center font-serif select-none>
-        <div mr-10px cursor-pointer @click="handleSearch">
+        <div mr-10px cursor-pointer class="hover-color-#009966" @click="handleSearch">
           search
         </div>
         <NuxtLink to="/postList">
