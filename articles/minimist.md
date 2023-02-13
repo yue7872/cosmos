@@ -19,18 +19,6 @@ process存在于全局对象上，不需要使用require()加载即可使用，p
 - 获取进程信息（资源使用、运行环境、运行状态）
 - 执行进程操作（监听事件、调度任务、发出警告）
 
-#### 环境变量：process.env
-
-在node服务运行时，经常会判断当前服务运行环境，（生产环境 / 非生产环境）：
-
-```js
-if (process.env.NODE_ENV === 'production')
-  console.log('生产环境');
-
-else
-  console.log('非生产环境');
-```
-
 #### 异步：process.nextTick(fn)
 
 ```js

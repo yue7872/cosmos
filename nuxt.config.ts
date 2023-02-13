@@ -11,7 +11,7 @@ export default {
     shortcuts: [
       {
         'sort-item':
-          'border-none font-400 opacity-20 hover:opacity-50 cursor-pointer',
+          'border-none font-400 opacity-20 hover:opacity-50 cursor-pointer select-none',
       },
       { 'sort-active': 'opacity-100 text-cosGreen !hover:opacity-100' },
     ],
