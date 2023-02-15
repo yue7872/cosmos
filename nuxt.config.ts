@@ -1,6 +1,9 @@
 // nuxt.config.js
 export default {
-  modules: ['@unocss/nuxt'],
+  modules: [
+    '@unocss/nuxt',
+    '@nuxt/devtools',
+  ],
   unocss: {
     // presets
     uno: true, // enabled `@unocss/preset-uno`
