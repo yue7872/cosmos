@@ -5,13 +5,16 @@
 
 a {
   color: #000;
-  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-family: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
   text-decoration: none;
-  &:visited,&:active {
-    color: #000;
-  }
 }
-
+a:visited,
+a:active {
+  color: #000;
+}
+a:hover {
+  color: #009966;
+}
 @keyframes blink {
   0% {
     opacity: 1;
@@ -25,7 +28,7 @@ a {
 }
 
 .nav-title {
-  transition: all .5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 .nav-title-show {
   transform: translateX(0);

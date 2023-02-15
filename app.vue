@@ -35,5 +35,5 @@ useHead({
   </NuxtLayout>
 </template>
 <style>
-@import url(~/style/common.less);
+@import url(~/style/common.css);
 </style>
