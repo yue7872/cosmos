@@ -33,6 +33,7 @@ export default {
         },
       ],
       ['text-cosGreen', { color: '#009966' }],
+      ['text-cosLight', { color: '#999999' }],
     ],
     theme: {
       // animation: {

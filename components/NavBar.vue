@@ -25,10 +25,12 @@ watch(showSearch, (val) => {
 
 const showTitleInNav = ref(false);
 const isArticles = ref(false);
+const postTitle = ref('');
 watch(
   () => router.currentRoute.value.path,
   (val) => {
     isArticles.value = val.includes('/articles/');
+    postTitle.value = val.replace('/articles/', '').replace('.vue', '');
     if (!isArticles.value)
       showTitleInNav.value = false;
   },
@@ -70,10 +72,11 @@ onMounted(() => {
         <div
           cursor-auto
           ml-10px
+          text-cosLight
           class="nav-title"
           :class="showTitleInNav ? 'nav-title-show' : 'nav-title-hide'"
         >
-          title
+          {{ postTitle }}
         </div>
       </div>
       <div flex items-center font-serif select-none>
