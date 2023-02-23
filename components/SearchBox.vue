@@ -92,8 +92,7 @@ const handleInput = (e: EventTarget) => {
         v-for="(item, index) in searchResult"
         :key="index"
         w-400px
-        border-b-red
-        border-b
+        mt-15px
       >
         <NuxtLink :to="item.link" block @click="jumpClick">
           <div v-if="item.inTitle">

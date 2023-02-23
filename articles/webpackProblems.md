@@ -235,6 +235,12 @@ Error: Function rgb is missing argument $green.
 
 即可解决。
 
+**注意：**
+dart-sass会有一些其他问题，目前已知：
+- `width: #{$i}0%;` 这种语法dart-sass会报错
+- 和resolve-url配合使用时，resolve-url不生效，https://github.com/bholloway/resolve-url-loader/issues/122
+
+
 ### 11、webpack处理不了sass/scss的语法
 
 loader的test，要把sass和less分开写
