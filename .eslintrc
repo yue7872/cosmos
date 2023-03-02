@@ -6,7 +6,8 @@
     "quotes": ["error", "single"],
     "brace-style": [2, "stroustrup", { "allowSingleLine": false }],
     "array-callback-return": "off",
-    "vue/v-on-event-hyphenation": "off"
+    "vue/v-on-event-hyphenation": "off",
+    "vue/attribute-hyphenation": "off"
   },
-  "ignorePatterns":["*.md"]
+  "ignorePatterns": ["*.md"]
 }
