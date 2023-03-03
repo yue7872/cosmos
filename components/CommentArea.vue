@@ -6,6 +6,7 @@ import Giscus from '@giscus/vue';
   <div>
     <Giscus
       id="comments"
+      host="https://giscus.app"
       repo="yue7872/cosmos"
       repoId="R_kgDOHrpTpA"
       category="Announcements"
