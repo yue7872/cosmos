@@ -91,8 +91,8 @@ onMounted(() => {
         <NuxtLink to="/hello" ml-10px>
           Hello
         </NuxtLink>
-        <NuxtLink to="/aa" ml-10px>
-          aa
+        <NuxtLink to="/comment" ml-10px>
+          comment
         </NuxtLink>
       </div>
     </div>
