@@ -1,9 +1,9 @@
 <script setup>
 definePageMeta({
   layout: 'default',
-  title: 'aa',
+  title: '留言板',
 });
 </script>
 <template>
-  <div>a</div>
+  <div>欢迎留言</div>
 </template>

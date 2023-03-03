@@ -63,11 +63,13 @@ onMounted(() => {
       pr-32px
       nav
     >
-      <div flex items-center cursor-pointer @click="goHome">
-        <img src="~/assets/img/logo.png" alt="cosmos" w-32px h-32px>
-        <!-- eslint-disable-next-line vue/singleline-html-element-content-newline -->
-        <div ml-10px font-serif font-medium>
-          Cosmos
+      <div flex items-center>
+        <div flex items-center cursor-pointer @click="goHome">
+          <img src="~/assets/img/logo.png" alt="cosmos" w-32px h-32px>
+          <!-- eslint-disable-next-line vue/singleline-html-element-content-newline -->
+          <div ml-10px font-serif font-medium>
+            Cosmos
+          </div>
         </div>
         <div
           cursor-auto
