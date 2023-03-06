@@ -87,7 +87,7 @@ const handleInput = (e: EventTarget) => {
       @focus.stop="handleFocus"
       @input="handleInput"
     >
-    <div of-scroll max-h-500px mt-10px class="cosmos-search-results">
+    <div v-if="searchResult[0]" of-scroll max-h-500px mt-10px class="cosmos-search-results">
       <div
         v-for="(item, index) in searchResult"
         :key="index"
