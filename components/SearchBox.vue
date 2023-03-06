@@ -70,7 +70,7 @@ const handleInput = (e: EventTarget) => {
 };
 </script>
 <template>
-  <div v-if="showSearchBox" p-50px bg-white @click.stop="">
+  <div v-if="showSearchBox" p-50px bg-white b-rd-10px @click.stop="">
     <input
       ref="searchInput"
       w-400px
@@ -87,7 +87,7 @@ const handleInput = (e: EventTarget) => {
       @focus.stop="handleFocus"
       @input="handleInput"
     >
-    <div of-scroll max-h-500px>
+    <div of-scroll max-h-500px mt-10px class="cosmos-search-results">
       <div
         v-for="(item, index) in searchResult"
         :key="index"
@@ -95,7 +95,7 @@ const handleInput = (e: EventTarget) => {
         mt-15px
       >
         <NuxtLink :to="item.link" block @click="jumpClick">
-          <div v-if="item.inTitle">
+          <div v-if="item.inTitle" font-600 text-18px>
             <span>
               {{ useSplitSearch(item.title,item.searchValue)[0] }}
             </span>
@@ -108,7 +108,7 @@ const handleInput = (e: EventTarget) => {
               {{ useSplitSearch(item.title,item.searchValue)[1] }}
             </span>
           </div>
-          <div v-else>
+          <div v-else font-600 text-18px>
             {{ item.title }}
           </div>
           <div
@@ -141,4 +141,7 @@ const handleInput = (e: EventTarget) => {
   </div>
 </template>
 <style>
+.cosmos-search-results::-webkit-scrollbar {
+  width: 0;
+}
 </style>
